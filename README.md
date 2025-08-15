@@ -39,3 +39,24 @@ All three services can run code when something happens, but Azure Functions give
 **Narrative Analysis:**  
 Durable Functions are great if you already use Azure Functions and need to add workflows without leaving the serverless model. AWS Step Functions offer a strong visual approach and tight AWS integration, but costs can rise with complex workflows. GCP Workflows are simple and connect easily to APIs, but they lack some of the deep trigger variety that Azure offers. If your setup is in Azure, Durable Functions keep everything consistent; AWS Step Functions fit best in AWS-heavy projects; GCP Workflows work well for lighter, API-based orchestration.
 
+## 3. Azure Logic Apps
+
+### Overview
+- **Azure Logic Apps** – A serverless workflow automation service that lets you connect apps, data, and services using pre-built connectors. Ideal for integrating systems and automating processes without writing much code.  
+- **AWS Step Functions / EventBridge Pipes** – Step Functions handle workflow orchestration, while EventBridge Pipes allow event filtering and routing between AWS services without complex code.  
+- **GCP Workflows** – Orchestrates Google Cloud services and APIs, supports conditional logic, and is suited for connecting GCP-based systems.
+
+### Comparison Table
+| Feature | Azure Logic Apps | AWS Step Functions / EventBridge Pipes | GCP Workflows |
+|---------|-----------------|----------------------------------------|---------------|
+| Core Features | Low-code workflows, 450+ connectors, triggers from events and schedules | Workflow orchestration (Step Functions), event routing/filtering (EventBridge Pipes) | Service orchestration, conditional flows, loops |
+| Integration Options | Connects to Azure services, on-prem systems, SaaS apps (Office 365, Salesforce, etc.) | Integrates with AWS services, custom apps, SaaS via APIs | Integrates with GCP services and any HTTP API |
+| Monitoring & Observability | Azure Monitor, Application Insights | CloudWatch, X-Ray, EventBridge metrics | Cloud Logging, Cloud Trace |
+| Pricing Model | Pay-per-action and connector usage | Pay-per-state transition (Step Functions), pay-per-event (EventBridge) | Pay-per-step execution |
+| Strengths | Huge library of connectors, easy to use for non-developers | Strong AWS integration, flexible event handling | Simple for API orchestration in GCP |
+| Weaknesses | Connector costs can add up, Azure-focused | Requires multiple AWS services for full Logic Apps-like functionality | Fewer ready-to-use connectors |
+
+**Narrative Analysis:**  
+Logic Apps are perfect if you want quick automation with minimal coding, thanks to their large set of connectors and built-in triggers. In AWS, you often combine Step Functions with EventBridge Pipes to get similar results, which offers flexibility but adds complexity. GCP Workflows keep things simple and API-friendly, but lack the ready-made connectors that make Logic Apps so fast to set up. If your environment is Azure-heavy, Logic Apps save a lot of time; AWS’s approach works better if you’re already deep into AWS; GCP’s option is great for lightweight, API-focused flows.
+
+
