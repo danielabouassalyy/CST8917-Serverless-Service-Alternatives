@@ -59,4 +59,24 @@ Durable Functions are great if you already use Azure Functions and need to add w
 **Narrative Analysis:**  
 Logic Apps are perfect if you want quick automation with minimal coding, thanks to their large set of connectors and built-in triggers. In AWS, you often combine Step Functions with EventBridge Pipes to get similar results, which offers flexibility but adds complexity. GCP Workflows keep things simple and API-friendly, but lack the ready-made connectors that make Logic Apps so fast to set up. If your environment is Azure-heavy, Logic Apps save a lot of time; AWS’s approach works better if you’re already deep into AWS; GCP’s option is great for lightweight, API-focused flows.
 
+## 4. Azure Service Bus (Queues & Topics)
+
+### Overview
+- **Azure Service Bus** – A fully managed enterprise message broker with support for queues (point-to-point) and topics (publish/subscribe). Offers advanced features like dead-letter queues, scheduled delivery, and message sessions.  
+- **AWS SQS / SNS** – Amazon Simple Queue Service (SQS) handles message queuing, while Simple Notification Service (SNS) supports publish/subscribe messaging. Both are fully managed and integrate with many AWS services.  
+- **GCP Pub/Sub** – Google’s messaging service that supports publish/subscribe and push/pull delivery models, designed for real-time event ingestion.
+
+### Comparison Table
+| Feature | Azure Service Bus | AWS SQS / SNS | GCP Pub/Sub |
+|---------|------------------|--------------|-------------|
+| Core Features | Queues, topics, dead-letter queues, scheduled messages, transactions | SQS: queues; SNS: pub/sub; both integrate tightly with AWS | Pub/sub messaging, push & pull delivery, message ordering |
+| Integration Options | Works with Azure Functions, Logic Apps, Event Grid | Works with Lambda, Step Functions, EventBridge | Works with Cloud Functions, Dataflow, App Engine |
+| Monitoring & Observability | Azure Monitor, Service Bus metrics | CloudWatch metrics, SQS/SNS dashboards | Cloud Monitoring, Pub/Sub metrics |
+| Pricing Model | Pay-per-operation, plus data transfer | Pay-per-request for SQS/SNS | Pay-per-data volume and operations |
+| Strengths | Advanced enterprise features, reliable message delivery | Simple setup, scalable, well-integrated in AWS | Global scale, simple API, strong real-time performance |
+| Weaknesses | More complex to configure than basic queues | Lacks some advanced broker features like transactions in SNS/SQS | Fewer advanced enterprise features than Service Bus |
+
+**Narrative Analysis:**  
+Azure Service Bus is built for enterprise-grade messaging with features like transactions, scheduled delivery, and dead-letter queues, making it ideal for complex systems. AWS splits this into two services: SQS for queuing and SNS for pub/sub, which keeps them simple but sometimes requires using both together. GCP Pub/Sub is fast, scalable, and easy to use, but it focuses more on real-time event distribution than deep enterprise features. If you need advanced broker capabilities, Service Bus is a strong choice; for simpler setups in AWS, SQS/SNS works well; Pub/Sub is great for high-throughput event-driven systems.
+
 
